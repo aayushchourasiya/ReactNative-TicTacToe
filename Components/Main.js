@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, Pressable, Button} from 'react-native';
-export const Main = () => {
+import {View, Text, Pressable, Button, StyleSheet} from 'react-native';
+import { Styles } from './Styles';
+export const Main = props => {
   const [playerTurn, setPlayerTurn] = useState(true);
   const [values, setValues] = useState({
     v1: '',
@@ -63,6 +64,7 @@ export const Main = () => {
     const box1 = 'c' + winValues[0];
     const box2 = 'c' + winValues[1];
     const box3 = 'c' + winValues[2];
+    console.log(box3);
     setColor({...color, [box1]: 'yellow', [box2]: 'yellow', [box3]: 'yellow'});
   }, [gameWin]);
 
@@ -78,7 +80,7 @@ export const Main = () => {
       values.v8 !== '' &&
       values.v9 !== ''
     ) {
-        setTurn("It's Tie!")
+      setTurn("It's Tie!");
     }
     winCheck();
   }, [playerTurn]);
@@ -148,117 +150,105 @@ export const Main = () => {
         <View style={{flexDirection: 'row'}}>
           <Pressable onPress={() => playerFunc('v1')}>
             <View
-              style={{
-                width: 100,
-                height: 100,
-                backgroundColor: color.c1,
-                alignItems: 'center',
-                borderRightWidth: 2,
-                borderBottomWidth: 2,
-              }}>
-              <Text style={{fontSize: 70}}>{values.v1}</Text>
+              style={[
+                Styles.box,
+                Styles.bottomRightBorder,
+                {
+                  backgroundColor: color.c1,
+                },
+              ]}>
+              <Text style={Styles.textSize}>{values.v1}</Text>
             </View>
           </Pressable>
           <Pressable onPress={() => playerFunc('v2')}>
             <View
-              style={{
-                width: 100,
-                height: 100,
-                backgroundColor: color.c2,
-                alignItems: 'center',
-                borderRightWidth: 2,
-                borderBottomWidth: 2,
-              }}>
-              <Text style={{fontSize: 70}}>{values.v2}</Text>
+              style={[
+                Styles.box,
+                Styles.bottomRightBorder,
+                {
+                  backgroundColor: color.c2,
+                },
+              ]}>
+              <Text style={Styles.textSize}>{values.v2}</Text>
             </View>
           </Pressable>
           <Pressable onPress={() => playerFunc('v3')}>
             <View
-              style={{
-                width: 100,
-                height: 100,
-                backgroundColor: color.c3,
-                alignItems: 'center',
-                borderBottomWidth: 2,
-              }}>
-              <Text style={{fontSize: 70}}>{values.v3}</Text>
+              style={[
+                Styles.box,
+                Styles.bottomBorder,
+                {
+                  backgroundColor: color.c3,
+                },
+              ]}>
+              <Text style={Styles.textSize}>{values.v3}</Text>
             </View>
           </Pressable>
         </View>
         <View style={{flexDirection: 'row'}}>
           <Pressable onPress={() => playerFunc('v4')}>
             <View
-              style={{
-                width: 100,
-                height: 100,
-                backgroundColor: color.c4,
-                alignItems: 'center',
-                borderRightWidth: 2,
-                borderBottomWidth: 2,
-              }}>
-              <Text style={{fontSize: 70}}>{values.v4}</Text>
+              style={[
+                Styles.box,
+                Styles.bottomRightBorder,
+                {
+                  backgroundColor: color.c4,
+                },
+              ]}>
+              <Text style={Styles.textSize}>{values.v4}</Text>
             </View>
           </Pressable>
           <Pressable onPress={() => playerFunc('v5')}>
             <View
-              style={{
-                width: 100,
-                height: 100,
-                backgroundColor: color.c5,
-                alignItems: 'center',
-                borderRightWidth: 2,
-                borderBottomWidth: 2,
-              }}>
-              <Text style={{fontSize: 70}}>{values.v5}</Text>
+              style={[
+                Styles.box,
+                Styles.bottomRightBorder,
+                {
+                  backgroundColor: color.c5,
+                },
+              ]}>
+              <Text style={Styles.textSize}>{values.v5}</Text>
             </View>
           </Pressable>
           <Pressable onPress={() => playerFunc('v6')}>
             <View
-              style={{
-                width: 100,
-                height: 100,
-                backgroundColor: color.c6,
-                alignItems: 'center',
-                borderBottomWidth: 2,
-              }}>
-              <Text style={{fontSize: 70}}>{values.v6}</Text>
+              style={[
+                Styles.box,
+                Styles.bottomBorder,
+                {
+                  backgroundColor: color.c6,
+                },
+              ]}>
+              <Text style={Styles.textSize}>{values.v6}</Text>
             </View>
           </Pressable>
         </View>
         <View style={{flexDirection: 'row'}}>
           <Pressable onPress={() => playerFunc('v7')}>
             <View
-              style={{
-                width: 100,
-                height: 100,
-                backgroundColor: color.c7,
-                alignItems: 'center',
-                borderRightWidth: 2,
-              }}>
-              <Text style={{fontSize: 70}}>{values.v7}</Text>
+              style={[
+                Styles.box,
+                Styles.rightBorder,
+                {
+                  backgroundColor: color.c7,
+                },
+              ]}>
+              <Text style={Styles.textSize}>{values.v7}</Text>
             </View>
           </Pressable>
           <Pressable onPress={() => playerFunc('v8')}>
             <View
-              style={{
-                width: 100,
-                height: 100,
-                backgroundColor: color.c8,
-                alignItems: 'center',
-                borderRightWidth: 2,
-              }}>
-              <Text style={{fontSize: 70}}>{values.v8}</Text>
+              style={[
+                Styles.box,
+                Styles.rightBorder,
+                {backgroundColor: color.c8},
+              ]}>
+              <Text style={Styles.textSize}>{values.v8}</Text>
             </View>
           </Pressable>
           <Pressable onPress={() => playerFunc('v9')}>
-            <View
-              style={{
-                width: 100,
-                height: 100,
-                backgroundColor: color.c9,
-                alignItems: 'center',
-              }}>
-              <Text style={{fontSize: 70}}>{values.v9}</Text>
+            <View style={[Styles.box, {backgroundColor: color.c9}]}>
+              <Text style={Styles.textSize}>{values.v9}</Text>
             </View>
           </Pressable>
         </View>
